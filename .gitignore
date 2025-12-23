@@ -1,0 +1,12 @@
+# Временные файлы
+*.swp
+*~
+
+# Тестовые файлы
+debug_ui.html
+simple_test.html
+test_health.html
+
+# Директории
+node_modules/
+.DS_Store

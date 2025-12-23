@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Танчики - Арена</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Главное меню -->
+    <div id="menu" class="screen">
+        <div class="menu-container">
+            <h1>3D ТАНЧИКИ</h1>
+            <h2>Выберите свой танк</h2>
+            
+            <div class="tank-selection">
+                <div class="tank-card" data-type="light">
+                    <h3>Легкий танк</h3>
+                    <div class="tank-stats">
+                        <p>⚡ Скорость: ★★★★☆</p>
+                        <p>🛡️ Броня: ★★☆☆☆</p>
+                        <p>💥 Урон: ★★★☆☆</p>
+                    </div>
+                    <button class="select-btn">Выбрать</button>
+                </div>
+                
+                <div class="tank-card" data-type="medium">
+                    <h3>Средний танк</h3>
+                    <div class="tank-stats">
+                        <p>⚡ Скорость: ★★★☆☆</p>
+                        <p>🛡️ Броня: ★★★☆☆</p>
+                        <p>💥 Урон: ★★★☆☆</p>
+                    </div>
+                    <button class="select-btn">Выбрать</button>
+                </div>
+                
+                <div class="tank-card" data-type="heavy">
+                    <h3>Тяжелый танк</h3>
+                    <div class="tank-stats">
+                        <p>⚡ Скорость: ★★☆☆☆</p>
+                        <p>🛡️ Броня: ★★★★★</p>
+                        <p>💥 Урон: ★★★★☆</p>
+                    </div>
+                    <button class="select-btn">Выбрать</button>
+                </div>
+            </div>
+            
+            <div class="controls-info">
+                <h3>Управление:</h3>
+                <p>WASD - движение | Мышь - поворот башни | Пробел/ЛКМ - выстрел</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Игровой экран -->
+    <div id="game-screen" class="screen hidden">
+        <!-- HUD -->
+        <div id="hud">
+            <div class="hud-top">
+                <div class="health-bar-container">
+                    <div class="label">❤️ Здоровье</div>
+                    <div class="health-bar">
+                        <div id="health-fill" class="health-fill"></div>
+                    </div>
+                    <div id="health-text" class="health-text">100/100</div>
+                </div>
+                
+                <div class="score-wave">
+                    <div class="score">
+                        <span class="label">🏆 Очки:</span>
+                        <span id="score-value">0</span>
+                    </div>
+                    <div class="wave">
+                        <span class="label">⚔️ Волна:</span>
+                        <span id="wave-value">1</span>
+                    </div>
+                </div>
+                
+                <div class="enemies-count">
+                    <span class="label">🎯 Врагов:</span>
+                    <span id="enemies-value">0</span>
+                </div>
+            </div>
+            
+            <div id="wave-message" class="wave-message hidden"></div>
+            <div id="powerup-message" class="powerup-message hidden"></div>
+        </div>
+        
+        <!-- Canvas для Three.js -->
+        <canvas id="game-canvas"></canvas>
+    </div>
+    
+    <!-- Экран Game Over -->
+    <div id="gameover-screen" class="screen hidden">
+        <div class="menu-container">
+            <h1>GAME OVER</h1>
+            <div class="stats">
+                <p>Финальный счет: <span id="final-score">0</span></p>
+                <p>Достигнутая волна: <span id="final-wave">0</span></p>
+                <p>Уничтожено врагов: <span id="final-kills">0</span></p>
+                <p class="record">🏆 Лучший результат: <span id="best-score">0</span></p>
+            </div>
+            <button id="restart-btn" class="big-btn">Играть снова</button>
+            <button id="menu-btn" class="big-btn secondary">Главное меню</button>
+        </div>
+    </div>
+    
+    <!-- Pause меню -->
+    <div id="pause-menu" class="screen hidden">
+        <div class="menu-container">
+            <h1>ПАУЗА</h1>
+            <button id="resume-btn" class="big-btn">Продолжить</button>
+            <button id="exit-btn" class="big-btn secondary">Выйти в меню</button>
+        </div>
+    </div>
+    
+    <!-- Three.js библиотека -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Игровые модули -->
+    <script src="js/sound.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/projectile.js"></script>
+    <script src="js/tank.js"></script>
+    <script src="js/enemy.js"></script>
+    <script src="js/powerups.js"></script>
+    <script src="js/arena.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
